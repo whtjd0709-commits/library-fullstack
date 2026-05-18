@@ -1,4 +1,3 @@
-// book-management-api/src/main/java/com/yourname/bookapi/BookApiApplication.java
 package com.yourname.bookapi;
 
 import org.springframework.boot.SpringApplication;

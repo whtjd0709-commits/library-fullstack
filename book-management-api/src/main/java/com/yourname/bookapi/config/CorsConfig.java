@@ -1,4 +1,3 @@
-// book-management-api/src/main/java/com/yourname/bookapi/config/CorsConfig.java
 package com.yourname.bookapi.config;
 
 import org.springframework.context.annotation.Configuration;

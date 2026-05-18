@@ -1,4 +1,3 @@
-// book-management-api/src/main/java/com/yourname/bookapi/repository/BookRepository.java
 package com.yourname.bookapi.repository;
 
 import com.yourname.bookapi.entity.Book;

@@ -1,4 +1,3 @@
-// book-management-api/src/main/java/com/yourname/bookapi/entity/Book.java
 package com.yourname.bookapi.entity;
 
 import jakarta.persistence.*;
