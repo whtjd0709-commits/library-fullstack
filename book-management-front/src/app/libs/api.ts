@@ -1,4 +1,3 @@
-// book-management-front/src/app/libs/api.ts
 import type { Book } from "@/types/book";
 
 export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080";

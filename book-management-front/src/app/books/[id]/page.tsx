@@ -1,4 +1,3 @@
-// book-management-front/src/app/books/[id]/page.tsx (RSC + RCC DeleteBookButton)
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import DeleteBookButton from "@/app/components/DeleteBookButton";
@@ -14,49 +13,50 @@ export default async function BookDetailPage({
   if (!book) notFound();
 
   return (
-    <section className="mx-auto max-w-2xl">
-      <Link href="/" className="text-sm text-indigo-600 hover:underline">
-        Back
-      </Link>
-      <article className="mt-4 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-        <div className="mb-4 flex justify-between gap-4">
-          <h1 className="text-3xl font-bold">{book.title}</h1>
-          <span
-            className={`rounded-full px-3 py-1 text-sm ${
-              book.available
-                ? "bg-emerald-100 text-emerald-700"
-                : "bg-rose-100 text-rose-700"
-            }`}
-          >
-            {book.available ? "Available" : "Out"}
-          </span>
-        </div>
-        <dl className="space-y-3 text-sm">
-          <div className="flex border-b pb-2">
-            <dt className="w-20 text-slate-500">Author</dt>
-            <dd>{book.author}</dd>
-          </div>
-          <div className="flex border-b pb-2">
-            <dt className="w-20 text-slate-500">Price</dt>
-            <dd>
-              {book.price != null ? `${book.price.toLocaleString()} KRW` : "N/A"}
-            </dd>
-          </div>
-          <div className="flex pb-2">
-            <dt className="w-20 text-slate-500">ID</dt>
-            <dd>{book.id}</dd>
-          </div>
-        </dl>
-        <div className="mt-8 flex gap-3">
-          <Link
-            href={`/books/${book.id}/edit`}
-            className="rounded-lg bg-indigo-600 px-4 py-2 text-sm text-white"
-          >
-            Edit
-          </Link>
-          <DeleteBookButton bookId={book.id} bookTitle={book.title} />
-        </div>
-      </article>
-    </section>
+    <>
+      <p>
+        <Link href="/">&lt;&lt; 목록으로</Link>
+      </p>
+      <h1>도서 상세정보</h1>
+      <hr />
+      <table className="data form-table">
+        <tbody>
+          <tr>
+            <td>번호</td>
+            <td>{book.id}</td>
+          </tr>
+          <tr>
+            <td>제목</td>
+            <td>
+              <b>{book.title}</b>
+            </td>
+          </tr>
+          <tr>
+            <td>저자</td>
+            <td>{book.author}</td>
+          </tr>
+          <tr>
+            <td>가격</td>
+            <td>
+              {book.price != null ? `${book.price.toLocaleString()}원` : "-"}
+            </td>
+          </tr>
+          <tr>
+            <td>대여</td>
+            <td>
+              {book.available ? (
+                <span className="status-ok">대여가능</span>
+              ) : (
+                <span className="status-no">대여불가</span>
+              )}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <Link href={`/books/${book.id}/edit`}>[수정]</Link>
+      &nbsp;
+      <DeleteBookButton bookId={book.id} bookTitle={book.title} />
+    </>
   );
 }

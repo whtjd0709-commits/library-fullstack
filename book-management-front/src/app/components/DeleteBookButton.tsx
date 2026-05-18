@@ -1,4 +1,3 @@
-// book-management-front/src/app/components/DeleteBookButton.tsx (RCC)
 "use client";
 
 import { useTransition } from "react";
@@ -16,15 +15,15 @@ export default function DeleteBookButton({
   return (
     <button
       type="button"
+      className="btn-red"
       disabled={pending}
       onClick={() => {
-        if (confirm(`Delete "${bookTitle}"?`)) {
+        if (confirm(`"${bookTitle}" 삭제할까요?`)) {
           start(() => deleteBook(bookId));
         }
       }}
-      className="rounded-lg border border-rose-300 px-4 py-2 text-sm text-rose-600 disabled:opacity-60"
     >
-      {pending ? "Deleting..." : "Delete"}
+      {pending ? "삭제중" : "삭제"}
     </button>
   );
 }

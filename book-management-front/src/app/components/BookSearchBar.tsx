@@ -1,4 +1,3 @@
-// book-management-front/src/app/components/BookSearchBar.tsx (RCC)
 "use client";
 
 import { FormEvent, useTransition } from "react";
@@ -22,31 +21,28 @@ export default function BookSearchBar() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
+    <form onSubmit={handleSubmit}>
+      제목검색 :&nbsp;
       <input
-        type="search"
+        type="text"
         name="title"
         defaultValue={currentTitle}
-        placeholder="Search by title..."
-        className="flex-1 rounded-lg border border-slate-300 px-4 py-2.5 text-sm outline-none ring-indigo-500 focus:ring-2"
+        className="wide"
+        placeholder="제목 입력"
       />
-      <div className="flex gap-2">
-        <button
-          type="submit"
-          disabled={isPending}
-          className="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-60"
-        >
-          {isPending ? "..." : "Search"}
-        </button>
-        <button
-          type="button"
-          onClick={() => startTransition(() => router.push("/"))}
-          disabled={isPending}
-          className="rounded-lg border border-slate-300 px-4 py-2.5 text-sm hover:bg-slate-50"
-        >
-          Reset
-        </button>
-      </div>
+      &nbsp;
+      <button type="submit" className="btn-blue" disabled={isPending}>
+        {isPending ? "..." : "검색"}
+      </button>
+      &nbsp;
+      <button
+        type="button"
+        className="btn-gray"
+        disabled={isPending}
+        onClick={() => startTransition(() => router.push("/"))}
+      >
+        전체보기
+      </button>
     </form>
   );
 }

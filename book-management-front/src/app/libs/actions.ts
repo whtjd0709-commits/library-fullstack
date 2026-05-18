@@ -1,4 +1,3 @@
-// book-management-front/src/app/libs/actions.ts
 "use server";
 
 import { revalidatePath } from "next/cache";
