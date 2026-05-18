@@ -1,6 +1,9 @@
-.idea/
-*.iml
+# OS / editor
 .DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
 
 # dependencies
 node_modules/
