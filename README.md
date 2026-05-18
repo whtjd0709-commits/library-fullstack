@@ -87,16 +87,6 @@ book-management/
 
 기본 URL: `http://localhost:8080`
 
-### 도서 (`/api/books`)
-
-| 메서드 | 경로 | 설명 | 요청 | 응답 |
-|--------|------|------|------|------|
-| `GET` | `/api/books` | 전체 도서 목록 조회 | — | `200` — `Book[]` |
-| `GET` | `/api/books/search?title={title}` | 제목으로 도서 검색 (부분 일치) | Query: `title` (필수) | `200` — `Book[]` |
-| `GET` | `/api/books/{id}` | ID로 단일 도서 조회 | Path: `id` | `200` — `Book` / `404` — `{ "message": "..." }` |
-| `POST` | `/api/books` | 도서 등록 | Body: `Book` (id 제외) | `201` — `Book` |
-| `PUT` | `/api/books/{id}` | 도서 수정 | Path: `id`, Body: `Book` | `200` — `Book` / `404` |
-| `DELETE` | `/api/books/{id}` | 도서 삭제 | Path: `id` | `204` No Content / `404` |
 
 ### Book 객체
 
